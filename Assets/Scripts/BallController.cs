@@ -17,8 +17,8 @@ public class BallController : MonoBehaviour
     private float fBallSpeed = 1.0f;
 
     [SerializeField]
-    [Range(0.0f,1.0f)]
-    private float fTrailTime = 0.0f;
+    [Range(0.1f,1.0f)]
+    private float fTrailTime = 0.1f;
 
     private void OnDisable()
     {

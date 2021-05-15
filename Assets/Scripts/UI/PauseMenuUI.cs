@@ -33,6 +33,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private void OnMainMenuClick()
     {
+        onResumeEvent.Raise();
         LevelManager.LoadLevel(0);
     }
 
