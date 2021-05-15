@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class DeathBoxController : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other) {
-        other.gameObject.SetActive(false);
+    [Header("References Variable")]
+    [SerializeField]
+    private GameEvent gameEvent = null;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Ball")
+        {
+            other.gameObject.SetActive(false);
+            gameEvent.Raise();
+        }
     }
 }
