@@ -66,7 +66,7 @@ public class PaddleController : MonoBehaviour
         }
         else
         {
-        // If not paused, pause
+            // If not paused, pause
             pauseEvent.Raise();
         }
     }
