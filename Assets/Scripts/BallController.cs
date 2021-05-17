@@ -17,17 +17,19 @@ public class BallController : MonoBehaviour
     private float fBallSpeed = 1.0f;
 
     [SerializeField]
-    [Range(0.1f,1.0f)]
+    [Range(0.1f, 1.0f)]
     private float fTrailTime = 0.1f;
+
+    private Vector2 velocity = Vector2.zero;
 
     private void OnDisable()
     {
-        rbBody.velocity = Vector2.zero;
+        velocity = Vector2.zero;
     }
 
     private void OnEnable()
     {
-        SetNewVelocity(GetRandomVector2());
+        SetNewVelocityDirection(GetRandomVector2());
     }
 
     private Vector2 GetRandomVector2()
@@ -40,10 +42,15 @@ public class BallController : MonoBehaviour
         return velocityDir;
     }
 
-    private void SetNewVelocity(Vector2 velocityDir)
+    private void FixedUpdate()
+    {
+        rbBody.MovePosition((Vector2) transform.position + (velocity * Time.deltaTime));
+    }
+
+    private void SetNewVelocityDirection(Vector2 velocityDir)
     {
         velocityDir = velocityDir.normalized;
-        rbBody.velocity = velocityDir * fBallSpeed;
+        velocity = velocityDir * fBallSpeed;
     }
 
     public void OnPause()
@@ -58,16 +65,16 @@ public class BallController : MonoBehaviour
         trailRenderer.time = fTrailTime;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Paddle")
         {
-            float yDir =  transform.position.y >= other.gameObject.transform.position.y ? 1 : -1;
-
-            Vector2 newDir = new Vector2(rbBody.velocity.x,yDir);
-            newDir = newDir.normalized;
-
-            SetNewVelocity(newDir);
+            float yDir =  transform.position.y >= other.gameObject.transform.position.y ? Random.Range(0.5f,1.0f) : Random.Range(-0.5f,-1.0f);
+            velocity.x = -velocity.x;
+            velocity.y = yDir * fBallSpeed;
+        }
+        else
+        {
+            velocity.y = -velocity.y;
         }
     }
 }
