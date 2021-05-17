@@ -5,15 +5,19 @@ using UnityEngine;
 public class BallManager : MonoBehaviour
 {
     [SerializeField]
-    private GameObject prefBall;
+    private GameObject prefBall = null;
 
-    private GameObject ball;
+    private GameObject ball = null;
 
     public GameObject Ball { get => ball; private set => ball = value; }
+
+    private BallController ballController = null;
+    public BallController BallController { get => ballController; private set => ballController = value; }
 
     private static BallManager _instance;
 
     public static BallManager Instance {get {return _instance;}}
+
 
     [Header("Timer variables")]
     [SerializeField]
@@ -46,11 +50,9 @@ public class BallManager : MonoBehaviour
     {
         if (!Ball)
         {
-            Ball =
-                Instantiate(prefBall,
-                Vector3.zero,
-                prefBall.transform.rotation) as
-                GameObject;
+            Ball = Instantiate(prefBall,Vector3.zero,prefBall.transform.rotation) as GameObject;
+            ballController = Ball.GetComponent<BallController>();
+            Debug.Log(ballController);
         }
     }
 

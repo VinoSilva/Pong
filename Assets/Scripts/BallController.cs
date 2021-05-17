@@ -22,9 +22,11 @@ public class BallController : MonoBehaviour
 
     private Vector2 velocity = Vector2.zero;
 
+    public Vector2 Velocity { get => velocity; private set => velocity = value; }
+
     private void OnDisable()
     {
-        velocity = Vector2.zero;
+        Velocity = Vector2.zero;
     }
 
     private void OnEnable()
@@ -44,13 +46,13 @@ public class BallController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rbBody.MovePosition((Vector2) transform.position + (velocity * Time.deltaTime));
+        rbBody.MovePosition((Vector2) transform.position + (Velocity * Time.deltaTime));
     }
 
     private void SetNewVelocityDirection(Vector2 velocityDir)
     {
         velocityDir = velocityDir.normalized;
-        velocity = velocityDir * fBallSpeed;
+        Velocity = velocityDir * fBallSpeed;
     }
 
     public void OnPause()
@@ -69,12 +71,12 @@ public class BallController : MonoBehaviour
         if (other.gameObject.tag == "Paddle")
         {
             float yDir =  transform.position.y >= other.gameObject.transform.position.y ? Random.Range(0.5f,1.0f) : Random.Range(-0.5f,-1.0f);
-            velocity.x = -velocity.x;
+            velocity.x = -Velocity.x;
             velocity.y = yDir * fBallSpeed;
         }
         else
         {
-            velocity.y = -velocity.y;
+            velocity.y = -Velocity.y;
         }
     }
 }
