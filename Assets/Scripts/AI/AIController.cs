@@ -60,5 +60,8 @@ public class AIController : MonoBehaviour
         if(Mathf.Abs(yDifference) > 0.5f){
             rbBody.MovePosition((Vector2)transform.position + (moveDir.normalized *Time.deltaTime*fMoveSpeed));
         }
+        else{
+            rbBody.MovePosition((Vector2)transform.position + (moveDir *Time.deltaTime));
+        }
     }
 }
