@@ -52,7 +52,6 @@ public class BallManager : MonoBehaviour
         {
             Ball = Instantiate(prefBall,Vector3.zero,prefBall.transform.rotation) as GameObject;
             ballController = Ball.GetComponent<BallController>();
-            Debug.Log(ballController);
         }
     }
 

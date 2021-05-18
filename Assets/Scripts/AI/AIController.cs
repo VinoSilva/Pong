@@ -9,8 +9,12 @@ public class AIController : MonoBehaviour
     private Rigidbody2D rbBody = null;
 
     [SerializeField]
-    [Range(0.0f, 10.0f)]
-    private float yDamping = 0.0f;
+    [Range(0.0f, 30.0f)]
+    private float fMoveSpeed = 0.0f;
+
+    [SerializeField]
+    [Range(0.0f,30.0f)]
+    private float fNearDist = 0.0f;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -36,24 +40,25 @@ public class AIController : MonoBehaviour
 
         float dot = Vector3.Dot(dirBallVelocity,dirToPaddle);
 
-        if(dot <= 0){
-            MoveToCenter();
+        float yPosition = 0.0f;
+
+        if(dot > 0){
+            float dist = Vector3.Distance(transform.position,ballController.transform.position);
+
+            if(dist <= fNearDist){
+                yPosition = ballController.transform.position.y;
+            }
+            else{
+                yPosition = ballController.transform.position.y/2;
+            }
         }
-        else{
-            FollowBall(ballController);    
+
+        float yDifference = yPosition - transform.position.y;
+
+        Vector2 moveDir = Vector2.up * (yDifference);
+
+        if(Mathf.Abs(yDifference) > 0.5f){
+            rbBody.MovePosition((Vector2)transform.position + (moveDir.normalized *Time.deltaTime*fMoveSpeed));
         }
-    }
-
-    void FollowBall(BallController ballController)
-    {
-        float yPosition = Mathf.Lerp(transform.position.y,ballController.transform.position.y,Time.deltaTime * yDamping);
-
-        rbBody.MovePosition(new Vector2(transform.position.x,yPosition));
-    }
-
-    void MoveToCenter(){
-        float yPosition = Mathf.Lerp(transform.position.y,0.0f,Time.deltaTime * yDamping);
-        
-        rbBody.MovePosition(new Vector2(transform.position.x,yPosition));
     }
 }
