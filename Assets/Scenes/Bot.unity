@@ -1335,6 +1335,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 460378604}
     m_Modifications:
+    - target: {fileID: 673738241225439404, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: m_Size.x
+      value: 29.593292
+      objectReference: {fileID: 0}
+    - target: {fileID: 673738241225439404, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: m_Size.y
+      value: 82.323
+      objectReference: {fileID: 0}
+    - target: {fileID: 673738241225439404, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: m_Offset.x
+      value: 9.796646
+      objectReference: {fileID: 0}
+    - target: {fileID: 673738241225439404, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5691395
+      objectReference: {fileID: 0}
+    - target: {fileID: 673738241225439405, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: onGoalScored
+      value: 
+      objectReference: {fileID: 11400000, guid: a34f69dbc70a65f4db046e674c3c068b, type: 2}
+    - target: {fileID: 673738241225439405, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: scoreVariable
+      value: 
+      objectReference: {fileID: 11400000, guid: 39cae8ac03147764c8254a7db8fa5b2c, type: 2}
     - target: {fileID: 673738241225439406, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
       propertyPath: m_Name
       value: DeathBox (1)
@@ -1812,6 +1836,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 460378604}
     m_Modifications:
+    - target: {fileID: 673738241225439405, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
+      propertyPath: scoreVariable
+      value: 
+      objectReference: {fileID: 11400000, guid: b52d9092f50679e4f997737f0050ab95, type: 2}
     - target: {fileID: 673738241225439406, guid: d6169d06bb1c24d4d9bf73880370bfc9, type: 3}
       propertyPath: m_Name
       value: DeathBox
@@ -2074,14 +2102,6 @@ PrefabInstance:
     - target: {fileID: 1750211846563120453, guid: a9278aede7a713245a65181709c073a2, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750211847293815433, guid: a9278aede7a713245a65181709c073a2, type: 3}
-      propertyPath: m_Text
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1750211847296486690, guid: a9278aede7a713245a65181709c073a2, type: 3}
-      propertyPath: m_Text
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9278aede7a713245a65181709c073a2, type: 3}

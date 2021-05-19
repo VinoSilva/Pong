@@ -6,14 +6,19 @@ public class DeathBoxController : MonoBehaviour
 {
     [Header("References Variable")]
     [SerializeField]
-    private GameEvent gameEvent = null;
+    private GameEvent onGoalScored = null;
+
+    [SerializeField]
+    private IntVariable scoreVariable;
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Ball")
         {
             other.gameObject.SetActive(false);
-            gameEvent.Raise();
+            scoreVariable.RuntimeValue++;
+            onGoalScored.Raise();
         }
     }
 }

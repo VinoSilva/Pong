@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Variable/Bool Variable")]
-public class BoolVariable : ScriptableObject, ISerializationCallbackReceiver
+[CreateAssetMenu(menuName = "Scriptable Variable/Int Variable")]
+public class IntVariable : ScriptableObject, ISerializationCallbackReceiver
 {
-    public bool InitialValue;
+    public int InitialValue;
 
     [NonSerialized]
-    public bool RuntimeValue;
+    public int RuntimeValue;
 
     public void OnAfterDeserialize()
     {
