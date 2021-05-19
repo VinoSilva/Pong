@@ -27,10 +27,31 @@ public class Factory : MonoBehaviour
 
     private void Start()
     {
+        switch(GameSession.Instance.GameMode){
+            case GameMode.OnePlayer:
+                SpawnOnePlayerGame();
+                break;
+            case GameMode.TwoPlayer:
+                SpawnTwoPlayerGame();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void SpawnOnePlayerGame(){
         GameObject paddle = Instantiate(paddlePrefab,playerOneSpawnPoint,paddlePrefab.transform.rotation) as GameObject;
         GameObject ai =Instantiate(aiPrefab,playerTwoSpawnPoint,aiPrefab.transform.rotation)  as GameObject;
 
         paddle.SetActive(true);
         ai.SetActive(true);
+    }
+
+    private void SpawnTwoPlayerGame(){
+        GameObject paddle = Instantiate(paddlePrefab,playerOneSpawnPoint,paddlePrefab.transform.rotation) as GameObject;
+        GameObject paddle2 =Instantiate(paddlePrefab,playerTwoSpawnPoint,paddlePrefab.transform.rotation)  as GameObject;
+
+        paddle.SetActive(true);
+        paddle2.SetActive(true);
     }
 }

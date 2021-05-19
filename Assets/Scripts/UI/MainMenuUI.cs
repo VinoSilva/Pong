@@ -7,7 +7,10 @@ public class MainMenuUI : MonoBehaviour
 {
     [Header("References Variable")]
     [SerializeField]
-    private Button playBtn = null;
+    private Button playOnePlayerBtn = null;
+
+    [SerializeField]
+    private Button playTwoPlayerBtn = null;
 
     [SerializeField]
     private Button quitBtn = null;
@@ -15,12 +18,20 @@ public class MainMenuUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playBtn.onClick.AddListener (Play);
+        playOnePlayerBtn.onClick.AddListener (StartOnePlayerGame);
+        playTwoPlayerBtn.onClick.AddListener (StartTwoPlayerGame);
         quitBtn.onClick.AddListener (Quit);
     }
 
-    private void Play()
+    private void StartOnePlayerGame()
     {
+        GameSession.Instance.SetGameMode(GameMode.OnePlayer);
+        LevelManager.LoadLevel(1);
+    }
+
+    private void StartTwoPlayerGame()
+    {
+        GameSession.Instance.SetGameMode(GameMode.TwoPlayer);
         LevelManager.LoadLevel(1);
     }
 
