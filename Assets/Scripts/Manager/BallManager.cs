@@ -77,4 +77,13 @@ public class BallManager : MonoBehaviour
     public void OnGoalScored(){
         StartCoroutine(ISpawnBall());
     }
+
+    public void OnGameFinished(){
+        Ball.SetActive(false);
+        StopAllCoroutines();
+    }
+
+    public void OnGameRestart(){
+        StartCoroutine(ISpawnBall());
+    }
 }

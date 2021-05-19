@@ -23,4 +23,9 @@ public class ScoreMenuUI : MonoBehaviour
         playerOneScoreText.text = playerOneScore.RuntimeValue.ToString();
         playerTwoScoreText.text = playerTwoScore.RuntimeValue.ToString();
     }
+
+    public void OnGameRestart(){
+        playerOneScoreText.text = "0";
+        playerTwoScoreText.text = "0";
+    }
 }

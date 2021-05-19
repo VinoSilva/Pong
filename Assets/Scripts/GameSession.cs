@@ -19,7 +19,15 @@ public class GameSession : MonoBehaviour
     {
         get
         {
-            return _instance;
+            if(_instance){
+                return _instance;
+            }
+            else{
+                GameObject gameObject = new GameObject("Game Session");
+                GameSession gameSession = gameObject.AddComponent<GameSession>();
+
+                return gameSession;
+            }
         }
     }
 

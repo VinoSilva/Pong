@@ -38,8 +38,7 @@ public class PaddleController : MonoBehaviour
 
     private void Movement()
     {
-        Vector2 moveVector =
-            Vector2.up * yInput * Time.fixedDeltaTime * fMoveSpeed;
+        Vector2 moveVector = Vector2.up * yInput * Time.fixedDeltaTime * fMoveSpeed;
 
         if (yInput != 0.0f)
         {
@@ -69,5 +68,10 @@ public class PaddleController : MonoBehaviour
             // If not paused, pause
             pauseEvent.Raise();
         }
+    }
+
+    public void OnGameRestart()
+    {
+        transform.position = new Vector3(transform.position.x,0.0f,0.0f);
     }
 }

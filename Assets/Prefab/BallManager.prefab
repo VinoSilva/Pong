@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7519882028675439926}
   - component: {fileID: 7519882028675439927}
   - component: {fileID: 7519882028675439920}
+  - component: {fileID: 7519882026960911646}
+  - component: {fileID: 7519882026960911648}
   m_Layer: 0
   m_Name: BallManager
   m_TagString: Untagged
@@ -45,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefBall: {fileID: 4773992651126093642, guid: 7f066b767e545dc458db46bd27d18bcb, type: 3}
-  ball: {fileID: 0}
+  fTimerMax: 3
 --- !u!114 &7519882028675439920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +67,62 @@ MonoBehaviour:
       - m_Target: {fileID: 7519882028675439927}
         m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
         m_MethodName: OnGoalScored
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7519882026960911646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519882028675439925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68028227024e524b9242604009ceffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cbcd6c6a7e8e0d44e94996b686391b19, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7519882028675439927}
+        m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
+        m_MethodName: OnGameFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7519882026960911648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7519882028675439925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68028227024e524b9242604009ceffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 305095a7ba035e94fa991b6d53503450, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7519882028675439927}
+        m_TargetAssemblyTypeName: BallManager, Assembly-CSharp
+        m_MethodName: OnGameRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

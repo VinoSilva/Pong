@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 995583475746426745}
   - component: {fileID: 995583475746426747}
   - component: {fileID: 995583475746426746}
+  - component: {fileID: 995583474148809478}
+  - component: {fileID: 995583474148809480}
+  - component: {fileID: 995583474148809481}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,6 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseVariable: {fileID: 11400000, guid: ac6b8f030649eed4983b8e0cc879af17, type: 2}
   onGameStart: {fileID: 11400000, guid: deea237896cbe764a8e5f5e57e6f6a99, type: 2}
+  onGameFinished: {fileID: 11400000, guid: cbcd6c6a7e8e0d44e94996b686391b19, type: 2}
+  playerOneScore: {fileID: 11400000, guid: 39cae8ac03147764c8254a7db8fa5b2c, type: 2}
+  playerTwoScore: {fileID: 11400000, guid: b52d9092f50679e4f997737f0050ab95, type: 2}
+  gameSetting: {fileID: 11400000, guid: 8f4a68bab4c11a843b5347d916770e50, type: 2}
 --- !u!114 &995583475746426747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +101,90 @@ MonoBehaviour:
       - m_Target: {fileID: 995583475746426745}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnResume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &995583474148809478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995583475746426751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68028227024e524b9242604009ceffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a34f69dbc70a65f4db046e674c3c068b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 995583475746426745}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGoalScored
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &995583474148809480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995583475746426751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68028227024e524b9242604009ceffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 305095a7ba035e94fa991b6d53503450, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 995583475746426745}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnGameRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &995583474148809481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995583475746426751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68028227024e524b9242604009ceffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cbcd6c6a7e8e0d44e94996b686391b19, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 995583475746426745}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnPaused
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -31,6 +31,7 @@ public class BallController : MonoBehaviour
 
     private void OnEnable()
     {
+        trailRenderer.Clear();
         SetNewVelocityDirection(GetRandomVector2());
     }
 

@@ -12,7 +12,21 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameEvent onGameStart = null;
 
+    [SerializeField]
+    private GameEvent onGameFinished = null;
+
     private static GameManager _instance;
+
+    [Header("Scriptable Variable")]
+    [SerializeField]
+    private IntVariable playerOneScore = null;
+
+    [SerializeField]
+    private IntVariable playerTwoScore = null;
+
+    [Header("Game Setting")]
+    [SerializeField]
+    private GameSetting gameSetting = null;
 
     public static GameManager Instance
     {
@@ -63,4 +77,19 @@ public class GameManager : MonoBehaviour
         pauseVariable.RuntimeValue = false;
         Time.timeScale = 1.0f;
     }
+    public void OnGameRestart(){
+        OnResume();
+
+        playerOneScore.RuntimeValue = 0;
+        playerTwoScore.RuntimeValue = 0;
+    }
+    
+    public void OnGoalScored()
+    {
+        if( playerOneScore.RuntimeValue >= gameSetting.maxScore || playerTwoScore.RuntimeValue  >= gameSetting.maxScore)
+        {   
+            onGameFinished.Raise();
+        }
+    }
+
 }
