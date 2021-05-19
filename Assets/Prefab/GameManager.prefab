@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseVariable: {fileID: 11400000, guid: ac6b8f030649eed4983b8e0cc879af17, type: 2}
+  onGameStart: {fileID: 11400000, guid: deea237896cbe764a8e5f5e57e6f6a99, type: 2}
 --- !u!114 &995583475746426747
 MonoBehaviour:
   m_ObjectHideFlags: 0

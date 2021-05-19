@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private BoolVariable pauseVariable = null;
 
+    [Header("Game Event")]
+    [SerializeField]
+    private GameEvent onGameStart = null;
+
     private static GameManager _instance;
 
     public static GameManager Instance
@@ -28,6 +32,10 @@ public class GameManager : MonoBehaviour
         {
             _instance = this;
         }
+    }
+
+    private void OnEnable() {
+        onGameStart.Raise();
     }
 
     private void OnDestroy()
