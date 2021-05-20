@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class WinMenuUI : MonoBehaviour
@@ -70,5 +71,10 @@ public class WinMenuUI : MonoBehaviour
                     break;
             }
         }
+
+        playAgainBtn.gameObject.SetActive(true);
+        playAgainBtn.Select();
+        EventSystem.current.SetSelectedGameObject(null);    
+        EventSystem.current.SetSelectedGameObject(playAgainBtn.gameObject,null);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenuUI : MonoBehaviour
@@ -24,6 +25,14 @@ public class PauseMenuUI : MonoBehaviour
         resumeBtn.onClick.AddListener (OnResumeClick);
         mainMenuBtn.onClick.AddListener (OnMainMenuClick);
         quitBtn.onClick.AddListener (OnQuitClick);
+    }
+
+    private void OnEnable()
+    {
+        resumeBtn.gameObject.SetActive(true);
+        resumeBtn.Select();
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(resumeBtn.gameObject, null);
     }
 
     private void OnResumeClick()
