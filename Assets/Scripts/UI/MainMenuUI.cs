@@ -15,6 +15,9 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField]
     private Button quitBtn = null;
 
+    [SerializeField]
+    private DifficultyMenuUI difficultyMenuUI = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +29,19 @@ public class MainMenuUI : MonoBehaviour
     private void StartOnePlayerGame()
     {
         GameSession.Instance.SetGameMode(GameMode.OnePlayer);
-        LevelManager.LoadLevel(1);
+
+        difficultyMenuUI.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 
     private void StartTwoPlayerGame()
     {
         GameSession.Instance.SetGameMode(GameMode.TwoPlayer);
-        LevelManager.LoadLevel(1);
+        
+        difficultyMenuUI.gameObject.SetActive(true);
+
+        gameObject.SetActive(false);
     }
 
     private void Quit()

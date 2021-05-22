@@ -12,9 +12,52 @@ public class AIController : MonoBehaviour
     [Range(0.0f, 30.0f)]
     private float fMoveSpeed = 0.0f;
 
+    [Header("Distance Variables")]
     [SerializeField]
-    [Range(0.0f,30.0f)]
+    [Range(0.0f, 30.0f)]
+    private float fMidDist = 0.0f;
+
+    [SerializeField]
+    [Range(0.0f, 30.0f)]
     private float fNearDist = 0.0f;
+
+    private Bot bot = null;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, fMidDist);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, fNearDist);
+    }
+
+    private void OnEnable()
+    {
+        if (bot == null)
+        {
+            InitializeBot();
+        }
+    }
+
+    private void InitializeBot()
+    {
+        switch (GameSession.Instance.GameDifficulty)
+        {
+            case GameDifficulty.Easy:
+                Debug.Log("Easy Bot");
+                bot = new EasyBot();
+                break;
+            case GameDifficulty.Medium:
+                Debug.Log("Medium Bot");
+                bot = new MediumBot();
+                break;
+            case GameDifficulty.Hard:
+                Debug.Log("Hard Bot");
+                bot = new HardBot();
+                break;
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -22,7 +65,8 @@ public class AIController : MonoBehaviour
         Move();
     }
 
-    void Move(){
+    void Move()
+    {
         BallController ballController = BallManager.Instance.BallController;
 
         if (!ballController)
@@ -30,38 +74,28 @@ public class AIController : MonoBehaviour
             return;
         }
 
-        Vector2 Velocity = ballController.Velocity;
-        
-        float velocityX = Velocity.x;
-
-        Vector3 dirBallVelocity = new Vector3(velocityX,0.0f,0.0f);
-
-        Vector3 dirToPaddle = transform.position - ballController.transform.position;
-
-        float dot = Vector3.Dot(dirBallVelocity,dirToPaddle);
-
-        float yPosition = 0.0f;
-
-        if(dot > 0){
-            float dist = Vector3.Distance(transform.position,ballController.transform.position);
-
-            if(dist <= fNearDist){
-                yPosition = ballController.transform.position.y;
-            }
-            else{
-                yPosition = ballController.transform.position.y/2;
-            }
-        }
+        float yPosition =
+            bot
+                .CalculateYPosition(ballController,
+                transform.position,
+                fMidDist,
+                fNearDist);
 
         float yDifference = yPosition - transform.position.y;
 
         Vector2 moveDir = Vector2.up * (yDifference);
 
-        if(Mathf.Abs(yDifference) > 0.5f){
-            rbBody.MovePosition((Vector2)transform.position + (moveDir.normalized *Time.deltaTime*fMoveSpeed));
+        if (Mathf.Abs(yDifference) > 0.5f)
+        {
+            rbBody
+                .MovePosition((Vector2) transform.position +
+                (moveDir.normalized * Time.deltaTime * fMoveSpeed));
         }
-        else{
-            rbBody.MovePosition((Vector2)transform.position + (moveDir *Time.deltaTime));
+        else
+        {
+            rbBody
+                .MovePosition((Vector2) transform.position +
+                (moveDir * Time.deltaTime));
         }
     }
 }

@@ -2169,10 +2169,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIPaddle
       objectReference: {fileID: 0}
-    - target: {fileID: 677698573011875410, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 677698573011875420, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2216,18 +2212,6 @@ PrefabInstance:
     - target: {fileID: 677698573011875420, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 677698573011875422, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
-      propertyPath: fNearDist
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 677698573011875422, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
-      propertyPath: fMoveSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 677698573011875423, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c1edc847ae17b4aacaa5dccfcd0f97, type: 3}

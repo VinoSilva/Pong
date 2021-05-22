@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9b15d3285f823479740c373d8b6192, type: 3}
   m_Name: GameSetting
   m_EditorClassIdentifier: 
-  maxScore: 3
+  maxScore: 20

@@ -15,6 +15,11 @@ public class GameSession : MonoBehaviour
     private GameMode gameMode = GameMode.OnePlayer;
     public GameMode GameMode { get => gameMode; private set => gameMode = value; }
 
+    // private GameDifficulty gameDifficulty = GameDifficulty.Easy;
+    private GameDifficulty gameDifficulty = GameDifficulty.Medium;
+
+    public GameDifficulty GameDifficulty { get => gameDifficulty;  private set => gameDifficulty = value; }
+
     public static GameSession Instance
     {
         get
@@ -30,7 +35,6 @@ public class GameSession : MonoBehaviour
             }
         }
     }
-
 
     private void Awake()
     {
@@ -48,5 +52,9 @@ public class GameSession : MonoBehaviour
     public void SetGameMode(GameMode newGameMode)
     {
         gameMode = newGameMode;
+    }
+
+    public void SetGameDifficulty(GameDifficulty newGameDifficulty){
+        gameDifficulty = newGameDifficulty;
     }
 }

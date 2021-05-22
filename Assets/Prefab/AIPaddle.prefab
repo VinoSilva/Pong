@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &677698573011875420
 Transform:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -146,4 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbBody: {fileID: 677698573011875417}
-  yDamping: 6
+  fMoveSpeed: 6
+  fMidDist: 9
+  fNearDist: 5
