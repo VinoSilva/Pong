@@ -70,32 +70,17 @@ public class AIController : MonoBehaviour
         BallController ballController = BallManager.Instance.BallController;
 
         if (!ballController)
-        {
             return;
-        }
 
-        float yPosition =
-            bot
-                .CalculateYPosition(ballController,
-                transform.position,
-                fMidDist,
-                fNearDist);
+        float yPosition = bot.CalculateYPosition(ballController,transform.position,fMidDist,fNearDist);
 
         float yDifference = yPosition - transform.position.y;
 
         Vector2 moveDir = Vector2.up * (yDifference);
 
         if (Mathf.Abs(yDifference) > 0.5f)
-        {
-            rbBody
-                .MovePosition((Vector2) transform.position +
-                (moveDir.normalized * Time.deltaTime * fMoveSpeed));
-        }
+            rbBody.MovePosition((Vector2) transform.position + (moveDir.normalized * Time.deltaTime * fMoveSpeed));
         else
-        {
-            rbBody
-                .MovePosition((Vector2) transform.position +
-                (moveDir * Time.deltaTime));
-        }
+            rbBody.MovePosition((Vector2) transform.position + (moveDir * Time.deltaTime));
     }
 }
