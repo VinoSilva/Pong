@@ -227,6 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbBody: {fileID: 1151074800}
   trailRenderer: {fileID: 4773992651126093646}
+  bounceClip: {fileID: 8300000, guid: b1fa85b87a1865d49b262fdb227f9113, type: 3}
   fBallSpeed: 9.5
   fTrailTime: 0.5
 --- !u!50 &1151074800

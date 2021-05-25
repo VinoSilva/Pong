@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ScoreMenuUI : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class ScoreMenuUI : MonoBehaviour
     public void OnGoalScored(){
         playerOneScoreText.text = playerOneScore.RuntimeValue.ToString();
         playerTwoScoreText.text = playerTwoScore.RuntimeValue.ToString();
+
+        playerOneScoreText.gameObject.transform.DOPunchScale(Vector3.one,1.0f);
+        playerTwoScoreText.gameObject.transform.DOPunchScale(Vector3.one,1.0f);
     }
 
     public void OnGameRestart(){

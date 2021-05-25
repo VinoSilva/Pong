@@ -11,6 +11,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     private TrailRenderer trailRenderer = null;
 
+    
+    [SerializeField]
+    private AudioClip bounceClip = null;
+
     [Header("Movement Variables")]
     [SerializeField]
     [Range(1.0f, 20.0f)]
@@ -74,10 +78,13 @@ public class BallController : MonoBehaviour
             float yDir =  transform.position.y >= other.gameObject.transform.position.y ? Random.Range(0.5f,1.0f) : Random.Range(-0.5f,-1.0f);
             velocity.x = -Velocity.x;
             velocity.y = yDir * fBallSpeed;
+
         }
         else
         {
             velocity.y = -Velocity.y;
         }
+
+        SoundManager.Instance.PlayOneShot(bounceClip);
     }
 }
