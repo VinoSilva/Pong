@@ -17,12 +17,16 @@ public class DifficultyMenuUI : MonoBehaviour
     private Button hardBtn = null;
 
     [SerializeField]
+    private Button backBtn = null;
+
+    [SerializeField]
     private MainMenuUI mainMenuUI = null;
 
     private void Start() {
         easyBtn.onClick.AddListener(()=>{StartGame(GameDifficulty.Easy);});
         mediumBtn.onClick.AddListener(()=>{StartGame(GameDifficulty.Medium);});
         hardBtn.onClick.AddListener(()=>{StartGame(GameDifficulty.Hard);});
+        backBtn.onClick.AddListener(OnClickBack);
     }
 
     private void OnEnable() {
@@ -33,9 +37,6 @@ public class DifficultyMenuUI : MonoBehaviour
     }
 
     private void StartGame(GameDifficulty gameDifficulty = GameDifficulty.Easy){
-
-        Debug.Log(gameDifficulty);
-
         GameSession.Instance.SetGameDifficulty(gameDifficulty);
         LevelManager.LoadLevel(1);
     }

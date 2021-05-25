@@ -23,13 +23,16 @@ public class AIController : MonoBehaviour
 
     private Bot bot = null;
 
+    public float FNearDist { get => fNearDist; private set => fNearDist = value; }
+    public float FMidDist { get => fMidDist; private set => fMidDist = value; }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, fMidDist);
+        Gizmos.DrawWireSphere(transform.position, FMidDist);
 
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, fNearDist);
+        Gizmos.DrawWireSphere(transform.position, FNearDist);
     }
 
     private void OnEnable()
@@ -42,19 +45,21 @@ public class AIController : MonoBehaviour
 
     private void InitializeBot()
     {
+        BallController ballController = BallManager.Instance.BallController;
+
         switch (GameSession.Instance.GameDifficulty)
         {
             case GameDifficulty.Easy:
                 Debug.Log("Easy Bot");
-                bot = new EasyBot();
+                bot = new EasyBot(ballController,this);
                 break;
             case GameDifficulty.Medium:
                 Debug.Log("Medium Bot");
-                bot = new MediumBot();
+                bot = new MediumBot(ballController,this);
                 break;
             case GameDifficulty.Hard:
                 Debug.Log("Hard Bot");
-                bot = new HardBot();
+                bot = new HardBot(ballController,this);
                 break;
         }
     }
@@ -72,7 +77,7 @@ public class AIController : MonoBehaviour
         if (!ballController)
             return;
 
-        float yPosition = bot.CalculateYPosition(ballController,transform.position,fMidDist,fNearDist);
+        float yPosition = bot.CalculateYPosition();
 
         float yDifference = yPosition - transform.position.y;
 

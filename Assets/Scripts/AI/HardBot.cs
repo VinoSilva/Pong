@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HardBot : Bot
 {
-    public override float CalculateYPosition(BallController ballController, Vector3 ownPosition,float fMidDist,float fNearDist)
+    public HardBot(BallController ballController,AIController aiController):base(ballController,aiController){   
+    }
+
+    public override float CalculateYPosition()
     {
         throw new System.NotImplementedException();
     }

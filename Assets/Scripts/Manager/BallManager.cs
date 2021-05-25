@@ -30,6 +30,9 @@ public class BallManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         else{
+            SpawnBall();
+            ball.SetActive(false);
+            
             _instance = this;
         }
     }

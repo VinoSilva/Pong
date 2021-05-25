@@ -39,9 +39,7 @@ public class MainMenuUI : MonoBehaviour
     {
         GameSession.Instance.SetGameMode(GameMode.TwoPlayer);
         
-        difficultyMenuUI.gameObject.SetActive(true);
-
-        gameObject.SetActive(false);
+        LevelManager.LoadLevel(1);
     }
 
     private void Quit()
