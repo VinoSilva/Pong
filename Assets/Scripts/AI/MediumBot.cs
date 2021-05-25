@@ -18,11 +18,12 @@ public class MediumBot : Bot
         {
             float dist = Vector3.Distance(aiController.transform.position, ballController.transform.position);
 
-            if (dist <= aiController.FNearDist)
+            if(dist > aiController.FMidDist) //Far dist
             {
-                yPosition = ballController.transform.position.y;
+                Debug.Log("Head towards ball half y position");
+                yPosition = ballController.transform.position.y/2;
             }
-            else if(dist <= aiController.FMidDist )
+            else
             {
                 Vector2 A1 = (Vector2) aiController.transform.position + Vector2.up * 10;
                 Vector2 A2 = (Vector2) aiController.transform.position + Vector2.up * -10;
@@ -39,17 +40,21 @@ public class MediumBot : Bot
                 DebugExtension.DebugWireSphere(movePosition,Color.red,2.0f,Time.deltaTime);
 
                 if(found){
+                    Debug.Log("Head towards intersection y position");
+
                     yPosition = movePosition.y;
                 }
                 else{
+                    Debug.Log("Head towards ball half y position. No intersection");
                     yPosition = ballController.transform.position.y/2;
                 }
             }
-            else //Far dist
-            {
-                yPosition = ballController.transform.position.y/2;
-            }
         }
+
+        Vector3 pos = aiController.transform.position;
+        pos.y = yPosition;
+
+        DebugExtension.DebugWireSphere(pos,Color.cyan,0.5f,0.02f);
 
         return yPosition;
     }

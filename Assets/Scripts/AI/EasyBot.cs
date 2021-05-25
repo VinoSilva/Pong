@@ -19,10 +19,12 @@ public class EasyBot : Bot
             // If ball move towards, if the distance is near than fMidDist then head to exact position.
             if (dist <= aiController.FMidDist)
             {
+                Debug.Log("Head towards ball y position");
                 yPosition = ballController.transform.position.y;
             }
             else //If ball move towards, if it is further then move to mid point of self y position and ball's y position.
             {
+                Debug.Log("Head towards ball half y position");
                 yPosition = ballController.transform.position.y / 2;
             }
         }
