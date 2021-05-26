@@ -18,7 +18,8 @@ public class MediumBot : Bot
         {
             float dist = Vector3.Distance(aiController.transform.position, ballController.transform.position);
 
-            if(dist > aiController.FMidDist) //Far dist
+            // if(dist > aiController.FMidDist) //Far dist
+            if(Mathf.Abs(aiController.transform.position.x - ballController.transform.position.x) > aiController.FMidDist) //Far dist
             {
                 Debug.Log("Head towards ball half y position");
                 yPosition = ballController.transform.position.y/2;

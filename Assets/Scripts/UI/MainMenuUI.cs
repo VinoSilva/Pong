@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
@@ -24,6 +25,13 @@ public class MainMenuUI : MonoBehaviour
         playOnePlayerBtn.onClick.AddListener (StartOnePlayerGame);
         playTwoPlayerBtn.onClick.AddListener (StartTwoPlayerGame);
         quitBtn.onClick.AddListener (Quit);
+    }
+    
+    private void OnEnable() {
+        playOnePlayerBtn.gameObject.SetActive(true);
+        playOnePlayerBtn.Select();
+        EventSystem.current.SetSelectedGameObject(null);    
+        EventSystem.current.SetSelectedGameObject(playOnePlayerBtn.gameObject,null);
     }
 
     private void StartOnePlayerGame()
