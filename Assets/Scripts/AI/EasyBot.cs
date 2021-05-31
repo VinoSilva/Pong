@@ -16,6 +16,14 @@ public class EasyBot : Bot
         {
             float dist = Vector3.Distance(aiController.transform.position, ballController.transform.position);
 
+            // Basically we want target to hit the ball in the center if possible
+            float modifier = aiController.transform.localScale.y/2;
+
+            if(ballController.transform.position.y < aiController.transform.position.y)
+            {
+                modifier *= -1;
+            }
+
             // If ball move towards, if the distance is near than fMidDist then head to exact position.
             if (dist <= aiController.FMidDist)
             {
